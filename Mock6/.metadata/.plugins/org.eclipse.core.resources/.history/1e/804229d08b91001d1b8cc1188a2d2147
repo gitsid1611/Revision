@@ -1,0 +1,26 @@
+package com.masai.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.masai.Repository.UserRepo;
+import com.masai.exception.UserException;
+import com.masai.model.User;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	@Autowired
+	private UserRepo userrepo;
+	
+	@Override
+	public User saveUser(User user) throws UserException {
+		User existingUserName = userrepo.findByMobileNumber(user.getMobileNumber());
+
+		if (existingUserName != null)
+			throw new UserException("Mobile Number already exists " + user.getMobileNumber());
+
+		return userrepo.save(user);
+	}
+
+}
