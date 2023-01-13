@@ -1,0 +1,13 @@
+package com.masai.service;
+
+import com.masai.Exception.UserException;
+import com.masai.model.LoginDto;
+import com.masai.model.User;
+
+public interface UserService {
+
+	public User registerUser(User user)throws UserException;
+	public User loginUser(LoginDto login)throws UserException;
+	
+	public UpdateUser User(User user) throws UserException;
+}

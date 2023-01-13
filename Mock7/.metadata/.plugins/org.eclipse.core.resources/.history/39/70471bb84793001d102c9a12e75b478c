@@ -1,0 +1,61 @@
+package com.masai.model;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+public class User {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int userid;
+	
+	@NotNull
+	@Pattern(regexp = "A-Za-z")
+	private String firstname;
+	
+	@NotNull
+	@Pattern(regexp = "A-Za-z")
+	private String lastname;
+	
+	@Size(min=10,message = "moblie number must be 10 digits ")
+	@Column(unique = true)
+	@Pattern(regexp = "[6789]{1}[0-9]{9}", message = "should be in required form")
+	private String mobileNumber;
+	
+	
+	private LocalDateTime dateOfBirh;
+	
+	@Size(min = 6, max = 12)
+	@NotNull(message="Password Must Need")
+	@Pattern(regexp = "[A-Za-z0-9!@#$%^&*]", message = "Password must be have letter A-Z,a-z and charecter line @,%,&,Only Allow")
+	private String password ;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Email> email=new ArrayList<>();
+	
+	
+	
+	
+	
+}
