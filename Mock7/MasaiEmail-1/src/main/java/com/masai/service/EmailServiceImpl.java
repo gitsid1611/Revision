@@ -16,6 +16,20 @@ public class EmailServiceImpl implements EmailService{
 	
 	
 	@Override
+	public Email AddEmail(Email email) throws EmailException {
+             Email mod = pl.save(email);
+		
+		if(mod!=null)
+		{
+			return mod;
+		}
+		else {
+			throw new EmailException("Input is Not Correct");
+		}
+	}
+	
+	
+	@Override
 	public Email removeEmail(Email emailId) throws EmailException {
       Optional<Email> found = pl.findById(emailId.getEmailId());
 		
@@ -43,5 +57,7 @@ public class EmailServiceImpl implements EmailService{
 			return allcus;
 		}
 	}
+
+	
 
 }

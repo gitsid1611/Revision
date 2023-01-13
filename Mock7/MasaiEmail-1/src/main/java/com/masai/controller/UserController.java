@@ -45,26 +45,44 @@ public class UserController {
 	@PostMapping("/login")
 	public ResponseEntity<User> loginUser(@RequestBody LoginDto login) throws UserException{
 		
-		return new ResponseEntity<User>(usr.loginUser(login), HttpStatus.ACCEPTED);
+		return new ResponseEntity<User>(usr.loginUser(login), HttpStatus.OK);
 	}
 	
 	
 	@PutMapping("/user")
-	ResponseEntity<User> updatePlant(@RequestBody User user)throws UserException{
+	ResponseEntity<User> updateUser(@RequestBody User user)throws UserException{
 		
 
 		
 		
 		User updated = usr.UpdateUser(user);
-		return new ResponseEntity<User>(updated, HttpStatus.ACCEPTED);
+		return new ResponseEntity<User>(updated, HttpStatus.OK);
 		
 		
 			
 	}
 	
 	
+	@PostMapping("/mail")
+	public ResponseEntity<Email> AddPlant(@Valid @RequestBody Email cs) throws EmailException{
+		
+		if(cs==null)
+		{
+			throw new EmailException("Not Saved");
+		}
+		else {
+			Email add = ps.AddEmail(cs);
+			
+			return new ResponseEntity<Email>(add,HttpStatus.OK);
+		}
+		
+	
+		
+	}
+	
+	
 	@DeleteMapping("/delete/{id}")
-	ResponseEntity<Email> DeletePlant(@PathVariable("id") Email email) throws EmailException{
+	ResponseEntity<Email> DeleteEmail(@PathVariable("id") Email email) throws EmailException{
 		
 		Email pe = ps.removeEmail(email);
 	
