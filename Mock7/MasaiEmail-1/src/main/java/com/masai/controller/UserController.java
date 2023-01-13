@@ -64,7 +64,7 @@ public class UserController {
 	
 	
 	@PostMapping("/mail")
-	public ResponseEntity<Email> AddPlant(@Valid @RequestBody Email cs) throws EmailException{
+	public ResponseEntity<Email> AddEmail(@Valid @RequestBody Email cs) throws EmailException{
 		
 		if(cs==null)
 		{
