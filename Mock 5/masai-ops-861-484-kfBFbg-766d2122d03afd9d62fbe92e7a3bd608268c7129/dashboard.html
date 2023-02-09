@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <title>Web20-C4</title>
+</head>
+<link rel="stylesheet" href="./Styles/dashboard.css">
+
+<body>
+  <div id="navbar">
+    <h2>Masai Library</h2>
+    <div>
+      <a href="./index.html">
+        <h2>Home</h2>
+      </a>
+      <a href="./dashboard.html">
+        <h2>Dashboard</h2>
+      </a>
+      <a href="./buy.html">
+        <h2>My Books</h2>
+      </a>
+      <a href="./bookmark.html">
+        <h2>Bookmark</h2>
+      </a>
+    </div>
+  </div>
+  <select id="filter">
+    <option value="">Select Category</option>
+    <option value="Fiction">Fiction</option>
+    <option value="Self Help">Self Help</option>
+    <option value="Finance">Finance</option>
+  </select>
+  <h1>Total Books:- <span id="book-count">0</span></h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Added Date</th>
+        <th>Category</th>
+        <th>Buy</th>
+        <th>Bookmark</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Append your data here  -->
+    </tbody>
+  </table>
+</body>
+
+</html>
+<script src="./Scripts/dashboard.js"></script>
+
+
+
+<!-- <script>
+
+var arr=JSON.parse(localStorage.getItem("book-list"));
+
+var dash=document.getElementById("tbody");
+dash.innerHTML=null;
+
+
+
+var sum=0
+
+
+arr.forEach((element) => {
+    
+    var div= document.createElement("tr");
+    // div.setAttribute("id","chang");
+
+    var name=document.createElement("td");
+    name.textContent=element.name;
+
+    var author=document.createElement("td");
+    author.textContent=element.author;
+
+    var desc=document.createElement("td")
+    desc.textContent=element.desc;
+
+    var dat=document.getElementById("td")
+    dat.textContent=element.dat;
+
+
+    var cat=document.getElementById("td")
+    cat.textContent=element.category;
+
+    
+
+
+
+    // var button= document.createElement("td");
+    // button.setAttribute("id","buy")
+    // button.textContent="Buy";
+
+    // button.addEventListener("click",function(){
+    //     buy(element,i)
+    // })
+
+
+    // var but= document.createElement("td");
+    // but.setAttribute("id","addd")
+    // but.textContent="Add";
+    // but.stytle.backgroundColor ="Red";
+
+
+
+
+    var price=document.getElementById("h4")
+    dat.textContent=element.price;
+
+
+
+    div.append(name,author,desc,dat,cat,price);
+    dash.append(div);
+
+});
+
+</script> -->
