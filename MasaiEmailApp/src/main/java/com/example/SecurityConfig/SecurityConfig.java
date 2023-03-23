@@ -17,7 +17,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests( (auth)->auth
                                 .antMatchers("/masaimail/register").permitAll()
 				                .antMatchers("/masaimail/getAllUser").authenticated()
-                                .antMatchers("/usearController/login").hasRole("usear")
+                                .antMatchers("/usearController/login").hasRole("user")
 
                 ).csrf().disable()
                 .httpBasic();
